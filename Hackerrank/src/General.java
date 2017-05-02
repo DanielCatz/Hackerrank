@@ -2,6 +2,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class General {
+	
+	public static HashMap<Integer,Integer> fibMap = new HashMap<>(); 
+	
+	
 	/***
 	 * Find the most frequent integer in an array
 	 * @param arr
@@ -53,11 +57,30 @@ public class General {
 				end--;
 			}
 		}
-		
-		
-		
-		
-		
 		return null;
 	}
+	
+	/***
+	 * Get nth term of fib, recursive dp optimization
+	 * @param n
+	 * @return
+	 */
+	public static int fib(int n){
+		//Write fibbonaci iteratively and recursively (bonus: use dynamic programming)
+	
+		if(n==0){
+			return 0;
+		}
+		if(n==1){
+			return 1;
+		}
+		if(!fibMap.containsKey(n)){
+			fibMap.put(n,fib(n-1)+fib(n-2) );
+		}
+		
+		return fibMap.get(n);
+	
+	}
+	
+	
 }
