@@ -82,5 +82,46 @@ public class General {
 	
 	}
 	
+	/***
+	 * Count islands of contiguous 1's in a sea of 0's
+	 * Island are considered linked if 1 is adjacent to another 1(no diagonals)
+	 * @param map
+	 * @return
+	 */
+	public static int countIslands(int[][] map){		
+		//if 1,increment, find all connected 1 and turn them into a 2 without increment
+		int count = 0;
+		for(int row = 0; row < map.length; row++){
+			for(int col = 0 ; col<map[0].length; col++){
+				if(map[row][col]==1){
+					count++;
+					countIslandsHelper(map,row,col);
+				}
+			}			
+		}		
+		return count;
+	}
+	
+	/***
+	 * Helper which marks islands recursively
+	 * @param map
+	 * @param row
+	 * @param col
+	 */
+	private static void countIslandsHelper(int[][] map,int row, int col){
+				map[row][col]=2;
+				if(row>0 && map[row-1][col]==1){						
+					countIslandsHelper(map,row-1,col);
+				}
+				if(row<map.length-1 && map[row+1][col]==1){						
+					countIslandsHelper(map,row+1,col);
+				}
+				if(col>0 && map[row][col-1]==1){						
+					countIslandsHelper(map,row,col-1);
+				}
+				if(col<map[0].length-1 && map[row][col+1]==1){						
+					countIslandsHelper(map,row,col+1);
+				}
+	}
 	
 }
