@@ -19,5 +19,19 @@ public abstract class Strings {
 		
 	}
 	
+	/***
+	 * Iterative version of reverse String
+	 * @param word
+	 * @return
+	 */
+	public static String reverseString(String word){
+		StringBuilder solution = new StringBuilder();
+		
+		for(int i = word.length()-1; i>=0;i--){
+			solution.append(word.charAt(i));
+		}
+		System.out.print(solution.toString());
+		return solution.toString();
+	}
 	
 }
