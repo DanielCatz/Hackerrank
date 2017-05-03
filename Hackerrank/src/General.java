@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class General {
+public abstract class General {
 	
 	public static HashMap<Integer,Integer> fibMap = new HashMap<>(); 
 	
@@ -83,7 +83,7 @@ public class General {
 	}
 	
 	/***
-	 * Count islands of contiguous 1's in a sea of 0's
+	 * Count islands of contiguous 1's in a sea of 0's (DFS)
 	 * Island are considered linked if 1 is adjacent to another 1(no diagonals)
 	 * @param map
 	 * @return
